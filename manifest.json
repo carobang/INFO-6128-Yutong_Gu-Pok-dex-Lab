@@ -1,7 +1,7 @@
 {
   "name": "my-new-pwa",
   "short_name": "my-new-pwa",
-  "start_url": "https://carobang.github.io/INFO-6128-Yutong_Gu-Pok-dex-Lab",
+  "start_url": "https://carobang.github.io/INFO-6128-Yutong_Gu-Pok-dex-Lab/",
   "display": "standalone",
   "orientation": "portrait",
   "background_color": "#fff",
