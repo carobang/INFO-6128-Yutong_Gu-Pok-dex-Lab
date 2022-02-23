@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>My New PWA</title>
+    <title>My Pokedex</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#000" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -11,18 +11,52 @@
     <link rel="icon" type="image/png" href="assets/images/icon.png" sizes="32x32" />
     <link rel="icon" type="image/png" href="assets/images/icon.png" sizes="16x16" />
     <link rel="manifest" href="manifest.json" />
+    <link rel="stylesheet" href="https://unpkg.com/onsenui/css/onsenui.css">
+    <link rel="stylesheet" href="https://unpkg.com/onsenui/css/onsen-css-components.min.css">
     <link rel="stylesheet" type="text/css" href="src/app.css" />
   </head>
 
   <body>
-    <div class="container">
-      <h1>You are Online!</h1>
-      <p>It's time to create an amazing Progressive Web App!</p>
-    </div>
-  </body>
+    <ons-navigator id="navigator" swipeable page="index.html"></ons-navigator>
+    <template id="index.html">
+      <ons-page id="home">
+        <ons-toolbar>
+          <div class="left"><ons-toolbar-button></ons-toolbar-button></div>
+          <div class="center">My Pokedex</div>
+          <div class="right"><ons-toolbar-button></ons-toolbar-button></div>
+        </ons-toolbar>
 
-  <script src="src/app.js"></script>
+        <ons-list  id="listPokemon">
+        <ons-list-header>Pokemon (First100)</ons-list-header>
+    </ons-list>
+      </ons-page>
+      </template>
 
+      <template id="cards.html">
+        <ons-page id="cards">
+          <ons-toolbar id="toolbar">
+            <div class="left"><ons-back-button>Back</ons-back-button></div>
+            <div class="center" id ="title">Title</div>
+          </ons-toolbar>
+        <ons-card>
+          <img id="pokePic"/>
+          <div id="pokeNameID">Pokemon Name and ID</div>
+          <div id="details">
+            <ons-list id="types">
+              <ons-list-header>TYPES</ons-list-header>
+            </ons-list>
+            <ons-list id="stats">
+              <ons-list-header>STATS</ons-list-header>
+            </ons-list>
+          </div>
+        </ons-page>
+      </template>
+    </body>
+
+  
+
+  <script src="https://unpkg.com/onsenui/js/onsenui.min.js"></script>
+  <script src="src/app.js" defer></script>
   <script type="text/javascript">
     const registerSW = async () => {
       if ("serviceWorker" in navigator) {
