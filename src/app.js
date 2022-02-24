@@ -65,6 +65,7 @@ for(index in data.types){
 }
 
 for(index in data.stats){
+    //console.log(data.stats);
     let pokeStats= data.stats[index].stat.name;
    //console.log(pokeStats);
     let pokeBaseStats = data.stats[index].base_stat;
@@ -73,13 +74,14 @@ for(index in data.stats){
     //console.log(pokeEfforts);
     let stats= document.getElementById('stats');
     let statsList = document.createElement('ons-list-item');
+    statsList.setAttribute("class", "w3-display-container");
+    statsList.setAttribute("id", "something");
     statsList.style.textTransform = 'capitalize';
     let statsDetail = document.createTextNode(pokeStats+' '+ pokeBaseStats+' '+pokeEfforts);
      //console.log(statsDetail);
     statsList.appendChild(statsDetail);
     stats.appendChild(statsList);
 }
-
     })
 }
 
@@ -111,5 +113,17 @@ document.addEventListener('init', (e) => {
             stats:document.querySelector('#stats'),
         }
     }
+})
 
+
+window.addEventListener('load',() => window.history.pushState({ },''));
+window.addEventListener('popstate',() =>{
+    const pages = elements.navigator.pages;
+    if(pages && pages.length >1){
+        elements.navigator.popPage();
+        window.history.pushState({ },'');
+    }
+    else{
+        window.history.back();
+    }
 })
